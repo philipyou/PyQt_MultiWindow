@@ -320,8 +320,8 @@ class MainWindow(QMainWindow):
         self.windowMenu.addSeparator()
         i = 1
         menu = self.windowMenu
-        for textEdit in textEdits:
-            textEdit = textEdit.widget()
+        for textEdit_MSW in textEdits:
+            textEdit = textEdit_MSW.widget()
             title = textEdit.windowTitle()
             if i == 10:
                 self.windowMenu.addSeparator()
@@ -332,7 +332,7 @@ class MainWindow(QMainWindow):
             elif i < 36:
                 accel = "&{} ".format(chr(i + ord("@") - 9))
             action = menu.addAction("{}{}".format(accel, title))
-            self.windowMapper.setMapping(action, textEdit)
+            self.windowMapper.setMapping(action, textEdit_MSW)
             action.triggered.connect(self.windowMapper.map)
             i += 1
 
